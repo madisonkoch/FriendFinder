@@ -34,7 +34,7 @@
         <form class="form">
             <div class="row">
                 <div class="form-group col-md-2">
-                    <select id="q1" class="form-control">
+                    <select id="q1" class="chosen-select">
                     <option value="1">1</option>
                     <option value="2">2</option>
                     <option selected value="3">3</option>
@@ -46,7 +46,7 @@
             </div>
             <div class="row">
                 <div class="form-group col-md-2">
-                    <select id="q2" class="form-control">
+                    <select id="q2" class="chosen-select">
                         <option value="1">1</option>
                         <option value="2">2</option>
                         <option selected value="3">3</option>
@@ -58,7 +58,7 @@
             </div>
             <div class="row">
                 <div class="form-group col-md-2">
-                    <select id="q3" class="form-control">
+                    <select id="q3" class="chosen-select">
                         <option value="1">1</option>
                         <option value="2">2</option>
                         <option selected value="3">3</option>
@@ -70,7 +70,7 @@
             </div>
             <div class="row">
                 <div class="form-group col-md-2">
-                    <select id="q4" class="form-control">
+                    <select id="q4" class="chosen-select">
                         <option value="1">1</option>
                         <option value="2">2</option>
                         <option selected value="3">3</option>
@@ -82,7 +82,7 @@
             </div>
             <div class="row">
                 <div class="form-group col-md-2">
-                    <select id="q5" class="form-control">
+                    <select id="q5" class="chosen-select">
                         <option value="1">1</option>
                         <option value="2">2</option>
                         <option selected value="3">3</option>
@@ -94,7 +94,7 @@
             </div>
             <div class="row">
                 <div class="form-group col-md-2">
-                    <select id="q6" class="form-control">
+                    <select id="q6" class="chosen-select">
                         <option value="1">1</option>
                         <option value="2">2</option>
                         <option selected value="3">3</option>
@@ -106,7 +106,7 @@
             </div>
             <div class="row">
                 <div class="form-group col-md-2">
-                    <select id="q7" class="form-control">
+                    <select id="q7" class="chosen-select">
                         <option value="1">1</option>
                         <option value="2">2</option>
                         <option selected value="3">3</option>
@@ -118,7 +118,7 @@
             </div> 
             <div class="row">
                 <div class="form-group col-md-2">
-                    <select id="q8" class="form-control">
+                    <select id="q8" class="chosen-select">
                         <option value="1">1</option>
                         <option value="2">2</option>
                         <option selected value="3">3</option>
@@ -130,7 +130,7 @@
             </div>   
             <div class="row">
                 <div class="form-group col-md-2">
-                    <select id="q9" class="form-control">
+                    <select id="q9" class="chosen-select">
                         <option value="1">1</option>
                         <option value="2">2</option>
                         <option selected value="3">3</option>
@@ -142,7 +142,7 @@
             </div>
             <div class="row">
                 <div class="form-group col-md-2">
-                    <select id="q10" class="form-control">
+                    <select id="q10" class="chosen-select">
                         <option value="1">1</option>
                         <option value="2">2</option>
                         <option selected value="3">3</option>
@@ -163,15 +163,119 @@
         </footer>
              
     </div>
-</body>
-</html>
+
+    <!-- Modal -->
+    <div id="best-friend-modal" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+    
+            <!-- Modal content-->
+            <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">×</button>
+                <h2 class="modal-title"><strong>Best Match</strong></h2>
+            </div>
+            <div class="modal-body">
+                <h2 id="best-friend-name"></h2>
+                <img id="best-friend-img" src="https://localmarketingplus.ca/wp-content/uploads/2015/02/blue-head.jpg" alt="">
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+            </div>
+    
+        </div>
+    </div>
 
 <script>
-    $("#submit").on("click", function(event){
+    // $("#submit").on("click", function(event){
+    //     event.preventDefault();
+    //     function validform() {
+    //         var valid = true;
+    //         $(".form-control").each(function(){
+    //             if($(this).val() === ""){
+    //                 valid = false;
+    //                 alert("form-control is not valid");
+    //             }
+    //         });
+    //         $(".chosen-select").each(function(){
+    //             if ($(this).val() === ""){
+    //                 valid = false;
+    //                 alert(".chosen-select is not valid");
+    //             }
+    //         });
+    //         return valid;
+    //         alert("valid form")
+    //     }
+
+    //     if (validform()){
+    //         var newFriend = {
+    //             name: $("#name").val(),
+    //             photo: $("#image"),
+    //             scores: [
+    //                 $("#q1").val(),
+    //                 $("#q2").val(),
+    //                 $("#q3").val(),
+    //                 $("#q4").val(),
+    //                 $("#q5").val(),
+    //                 $("#q6").val(),
+    //                 $("#q7").val(),
+    //                 $("#q8").val(),
+    //                 $("#q9").val(),
+    //                 $("#q10").val()
+    //             ]
+    //         }; 
+    //         console.log(newFriend);
+    //         //post data to api/friends
+    //         $.post("/api/friends", newFriend, function(data){
+    //             $("#best-friend-name").text(data.name);
+    //             $("#best-friend-img").attr("src", data.photo);
+    //             $("#results-modal").modal("toggle");
+    //         });
+    //     } else {
+    //         alert("Hmmmm... looks like you missed one. Make sure you fill out all fields to continue.")
+    //     }
+    // });
+
+    $("#submit").on("click",function(event){
         event.preventDefault();
 
+        newFriend = {
+            name: $("#name").val(),
+            photo: $("#image").val(),
+            scores: [
+                $("#q1").val(),
+                $("#q2").val(),
+                $("#q3").val(),
+                $("#q4").val(),
+                $("#q5").val(),
+                $("#q6").val(),
+                $("#q7").val(),
+                $("#q8").val(),
+                $("#q9").val(),
+                $("#q10").val()
+            ]
+        };
+        console.log(newFriend);
+        //debugger;
 
-
-    })
+        // $.post("api/friends", newFriend)
+        //     .done(function(data){
+        //         if(data){
+        //             alert("yes");
+        //         } else{
+        //             alert("no");
+        //         }
+        //     })
+        //     .fail(function(r){
+        //         console.log(r);
+        //         alert("fail" + r.responseText);
+        //     });
+        const findMatch = function(){
+            $("#best-friend-modal").modal("toggle");
+        };
+        $.post("api/friends",newFriend,findMatch())
+    });
 
 </script>
+</body>
+</html>
