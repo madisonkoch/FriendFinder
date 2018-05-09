@@ -187,93 +187,58 @@
     </div>
 
 <script>
-    // $("#submit").on("click", function(event){
-    //     event.preventDefault();
-    //     function validform() {
-    //         var valid = true;
-    //         $(".form-control").each(function(){
-    //             if($(this).val() === ""){
-    //                 valid = false;
-    //                 alert("form-control is not valid");
-    //             }
-    //         });
-    //         $(".chosen-select").each(function(){
-    //             if ($(this).val() === ""){
-    //                 valid = false;
-    //                 alert(".chosen-select is not valid");
-    //             }
-    //         });
-    //         return valid;
-    //         alert("valid form")
-    //     }
-
-    //     if (validform()){
-    //         var newFriend = {
-    //             name: $("#name").val(),
-    //             photo: $("#image"),
-    //             scores: [
-    //                 $("#q1").val(),
-    //                 $("#q2").val(),
-    //                 $("#q3").val(),
-    //                 $("#q4").val(),
-    //                 $("#q5").val(),
-    //                 $("#q6").val(),
-    //                 $("#q7").val(),
-    //                 $("#q8").val(),
-    //                 $("#q9").val(),
-    //                 $("#q10").val()
-    //             ]
-    //         }; 
-    //         console.log(newFriend);
-    //         //post data to api/friends
-    //         $.post("/api/friends", newFriend, function(data){
-    //             $("#best-friend-name").text(data.name);
-    //             $("#best-friend-img").attr("src", data.photo);
-    //             $("#results-modal").modal("toggle");
-    //         });
-    //     } else {
-    //         alert("Hmmmm... looks like you missed one. Make sure you fill out all fields to continue.")
-    //     }
-    // });
-
-    $("#submit").on("click",function(event){
+    $("#submit").on("click", function(event){
         event.preventDefault();
+        function validform() {
+            var valid = true;
+            $(".form-control").each(function(){
+                if($(this).val() === ""){
+                    valid = false;
+                }
+            });
+            $(".chosen-select").each(function(){
+                if ($(this).val() === ""){
+                    valid = false;
+                }
+            });
+            return valid;
+        }
 
-        newFriend = {
-            name: $("#name").val(),
-            photo: $("#image").val(),
-            scores: [
-                $("#q1").val(),
-                $("#q2").val(),
-                $("#q3").val(),
-                $("#q4").val(),
-                $("#q5").val(),
-                $("#q6").val(),
-                $("#q7").val(),
-                $("#q8").val(),
-                $("#q9").val(),
-                $("#q10").val()
-            ]
-        };
-        console.log(newFriend);
-        //debugger;
+        if (validform()){
+            var newFriend = {
+                name: $("#name").val(),
+                photo: $("#image").val(),
+                scores: [
+                    $("#q1").val(),
+                    $("#q2").val(),
+                    $("#q3").val(),
+                    $("#q4").val(),
+                    $("#q5").val(),
+                    $("#q6").val(),
+                    $("#q7").val(),
+                    $("#q8").val(),
+                    $("#q9").val(),
+                    $("#q10").val()
+                ]
+            };
+        //console.log(newFriend);
+            const findMatch = function(){
+            //calculation that finds closest match
+//HELP how do I reference the data already in the friends.js api                    
 
-        // $.post("api/friends", newFriend)
-        //     .done(function(data){
-        //         if(data){
-        //             alert("yes");
-        //         } else{
-        //             alert("no");
-        //         }
-        //     })
-        //     .fail(function(r){
-        //         console.log(r);
-        //         alert("fail" + r.responseText);
-        //     });
-        const findMatch = function(){
-            $("#best-friend-modal").modal("toggle");
-        };
-        $.post("api/friends",newFriend,findMatch())
+            //put closest match's data in modal
+                // $("#best-friend-name").text(data.name);
+                // $("#best-friend-img").attr("src", data.photo);
+
+            //make modal visible
+                $("#best-friend-modal").modal("toggle");
+            };
+
+            $.post("api/friends",newFriend,findMatch())
+
+        } else {
+            alert("Hmmmm... looks like you missed something(s). Make sure you fill out all fields to continue.")
+        }
     });
 
 </script>
