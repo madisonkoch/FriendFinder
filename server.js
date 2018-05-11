@@ -1,6 +1,6 @@
 var express = require("express");
 var bodyParser = require("body-parser");
-//var path = require("path");
+var path = require("path");
 
 
 //create an "express" server
@@ -19,5 +19,5 @@ require("./app/routing/htmlRoutes")(app);
 
 //Active Server
 app.listen(PORT, function() {
-    console.log("App listening on PORT " + PORT);
+    console.log("App listening on  http://localhost:" + PORT);
   });
